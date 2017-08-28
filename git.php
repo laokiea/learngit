@@ -55,3 +55,9 @@ git remote add origin(name) repo_location
 
 git push -u origin master
 git pull origin master
+
+删除：
+git rm file<=> rm file ,git add file
+git rm命令会删除工作区的文件，并且将这个删除该表提交到stage
+等同于先rm file，然后add使得stage和工作区一致，于是工作区就没有file这个文件了，想要恢复得先从版本库里复制一份
+git reset HEAD file 然后git checkout -- file恢复到本地。此时工作区干净 
