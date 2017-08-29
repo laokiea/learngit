@@ -61,3 +61,22 @@ git rm file<=> rm file ,git add file
 git rm命令会删除工作区的文件，并且将这个删除该表提交到stage
 等同于先rm file，然后add使得stage和工作区一致，于是工作区就没有file这个文件了，想要恢复得先从版本库里复制一份
 git reset HEAD file 然后git checkout -- file恢复到本地。此时工作区干净 
+
+8.29
+创建和合并分支
+git的每一次提交都是连成一条线的（同一个分支上）
+master指向提交，HEAD指向master
+当我们（在matser上）创建一个新的分支dev，即创建了一个类似master分支的一个指针，指向master的最新提交，并将HEAD指向dev
+以后每一次提交 master分支不变化，而是dev指针往前移动一步，等在dev上的工作完成了。再把master指向dev的最新提交，HEAD指向master，即完成了合并
+
+git checkout -b new <=> git branch new ,git checkout new
+git branch => *new ,master
+git checkout master , git merge new 即将new分支合并到master（master指针指向new的最新提交）
+git branch -d new 删除new分支
+
+<<<<<<<HEAD
+add in HEAD（当前分支的修改内容：比如master）
+——————
+——————
+add in dev
+>>>>>>>dev（分之上的修改）
