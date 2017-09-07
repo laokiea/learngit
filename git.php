@@ -84,3 +84,33 @@ add in dev
 解决冲突
 在git merge后发现冲突，打开产生冲突的文件修改文件，再add commit完成合并
 其实多个分支公用一个stage，再分支1上修改不add不commit，切换到分支2，再提交也是可以的，只不过分支1可能不想要这个提交，也会被提交上去，所以一定要先提交再切换分支，目的是清空stage
+
+9.1 
+--no-ff
+git merge 一般在没有冲突的情况下会使用fastforword的模式，即将当前分支的指针指向待合并分支的最后一次提交上
+但是这样删除分之后，就看不到该分支的提交信息，所以在合并时可以禁用ff模式
+采用git merge --no-ff,主分支会进行一次提交，保证和待合并分支最后一次提交时工作区的内容一样
+
+
+保存工作区，如果在dev分支上，突然要切换到另外的分支上，但是工作没做完没法commit，可以使用git stash命令保存工作区，这个时候stage是干净的，切换回来的时候可以使用git stash apply/pop {stashlist}恢复
+
+
+9.4 
+git branch -D dev 没合并分支即可删除分支
+
+9.6 
+创建远程分支
+git checkout -b dev1
+git push origin dev1:dev1(最好同名，后面是远程分支名称)
+
+拉取远程分支可以使用
+git checkout -b dev1 origin/dev1
+或
+git checkout -t origin/dev1（应该是自动关联本地和远程了）
+
+git remote -v 查看远程库信息
+git branch -va 查看远程和本地分支
+
+多人协作
+一般是某个人完成任务：git push origin dev1 把本地提交推到远程的dev1分支，但是可能远程已经变化，可以git pull先
+如果有冲突更改冲突并提交，再推送就没问题了
