@@ -20,7 +20,7 @@ git diff (filename)
 git log
 查看所有的提交
 
-HEAD（类似一个指针）指向当前版本，即最新一次的提交对应的版本状态
+HEAD（类似一个指针）指向当前版本，即当前分支最新一次的提交对应的版本状态
 HEAD^指向一个版本
 HEAD~2 / HEAD^^前前一个版本
 
@@ -114,3 +114,13 @@ git branch -va 查看远程和本地分支
 多人协作
 一般是某个人完成任务：git push origin dev1 把本地提交推到远程的dev1分支，但是可能远程已经变化，可以git pull先
 如果有冲突更改冲突并提交，再推送就没问题了
+
+打标签
+可以为某个commit打上一个标签，比如v0.1方便以后找到这次提交
+git tag tag_name 即可以创建一个tag，默认是指向当前分支最后一次commit
+也可以commit后补上，git tag tag_nam part_commit_id
+
+git -a tag_name -m '' 新建一个有描述信息的标签
+git tag -s tag_name -m '描述' -u '配置GPG时填写的名字'可以生成用gpg私钥签名的标签
+
+gpg --gen-key 一路配置下去
