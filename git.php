@@ -20,7 +20,7 @@ git diff (filename)
 git log
 查看所有的提交
 
-HEAD（类似一个指针）指向当前版本，即最新一次的提交对应的版本状态
+HEAD（类似一个指针）指向当前版本，即当前分支最新一次的提交对应的版本状态
 HEAD^指向一个版本
 HEAD~2 / HEAD^^前前一个版本
 
@@ -121,3 +121,6 @@ git tag tag_name 即可以创建一个tag，默认是指向当前分支最后一
 也可以commit后补上，git tag tag_nam part_commit_id
 
 git -a tag_name -m '' 新建一个有描述信息的标签
+git tag -s tag_name -m '描述' -u '配置GPG时填写的名字'可以生成用gpg私钥签名的标签
+
+gpg --gen-key 一路配置下去
