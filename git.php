@@ -124,3 +124,14 @@ git -a tag_name -m '' 新建一个有描述信息的标签
 git tag -s tag_name -m '描述' -u '配置GPG时填写的名字'可以生成用gpg私钥签名的标签
 
 gpg --gen-key 一路配置下去
+
+
+9.11 
+.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。
+# 此为注释 – 将被 Git 忽略
+
+*.cs       # 忽略所有 .cs 结尾的文件
+!ABC.cs    # 但 ABC.cs 除外
+/BLL       # 仅仅忽略项目根目录下的 BLL 文件，不包括 subdir/BLL
+build/     # 忽略 build/ 目录下的所有文件
+doc/*.txt  # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
