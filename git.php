@@ -154,3 +154,6 @@ windows也基本一样，但常常只存在于是用户根目录(C:\User\xxx)，
 git config --global unset alias.ci
 批量的话还是在配置文件中直接删除吧
 
+某一个仓库的配置文件在.git/config ==>  git config alias.xx xxx
+某一台机器上的配置文件在当前用户根目录下的.gitconfig ==》 git config --global alias.xx xxx
+
