@@ -135,3 +135,22 @@ gpg --gen-key 一路配置下去
 /BLL       # 仅仅忽略项目根目录下的 BLL 文件，不包括 subdir/BLL
 build/     # 忽略 build/ 目录下的所有文件
 doc/*.txt  # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+
+
+
+也是git学习中，顺便回答几个问题。
+
+gitconfig配置文件的读取顺序：
+linux中类似用户的配置文件一样有3层，系统级，用户级，项目级。
+windows也基本一样，但常常只存在于是用户根目录(C:\User\xxx)，项目目录中。
+最下层的覆盖上面的，alias配置也在其中，手动改配置文件也和命令一样。
+加了--global选项的，表示配置写到了用户级，--system是系统级，win是在安装目录（如C:\Program Files\Git\mingw64\etc），不加就在项目级中。
+
+在命令行中，起同样的别名，前面的会被直接覆盖。
+如果别名是其本身的命令，比如git config --global alias.add commit，
+再运行git add时仍然是原add暂存功能，估计是优先识别内置的命令，其次才别名。
+
+命令删除一个已定义的别名
+git config --global unset alias.ci
+批量的话还是在配置文件中直接删除吧
+
