@@ -8,6 +8,7 @@ git init 初始化一个仓库 会创建一个.git隐藏文件 记录文件的�
 git add -A / git commit -a -m
 git add -u : 修改，删除的文件不包括新增的文件untracked
 git add . : 修改，新增的文件不包括刪除的文件
+git add -i []命令查看中被所有修改过或已删除文件但没有提交的文件，并通过其revert子命令可以查看中所有untracted的文件，同时进入一个子命令系统。
 
 git commit -m 
 
@@ -59,6 +60,8 @@ git pull origin master
 删除：
 git rm file<=> rm file ,git add file
 git rm命令会删除工作区的文件，并且将这个删除该表提交到stage
+git rm --cached file 保留本地文件 默认
+git rm --force file  刪除本地文件
 等同于先rm file，然后add使得stage和工作区一致，于是工作区就没有file这个文件了，想要恢复得先从版本库里复制一份
 git reset HEAD file 然后git checkout -- file恢复到本地。此时工作区干净 
 
