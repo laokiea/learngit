@@ -160,3 +160,14 @@ git config --global unset alias.ci
 某一个仓库的配置文件在.git/config ==>  git config alias.xx xxx
 某一台机器上的配置文件在当前用户根目录下的.gitconfig ==》 git config --global alias.xx xxx
 
+9.18补充：
+说说git reset
+参考：https://segmentfault.com/a/1190000006185954
+	  http://cnblogs.com/kidsitcn/p/4513297.html
+
+git reset 有三个参数 --mixed（默认） --soft --hrad
+--mixed: 要回退的版本和当前版本的差别会保存在工作区内，版本库和暂存区会回退到指定的版本
+--soft:  要回退的版本和当前版本的差别会保存在工作区和暂存区内，版本库会回退到指定的版本
+--hrad:  暂存区，版本库，工作区会回退到指定的版本
+
+如果跟文件，会把版本库里的文件复制一份去暂存区。
