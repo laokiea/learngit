@@ -138,8 +138,12 @@ gpg --gen-key 一路配置下去
 /BLL       # 仅仅忽略项目根目录下的 BLL 文件，不包括 subdir/BLL
 build/     # 忽略 build/ 目录下的所有文件
 doc/*.txt  # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
-
-
+a/*.a 所有a目录底下的扩展为a的文件
+/a/*.a 只有根目录底下的a文件夹下扩展为a的文件
+一个工程可能有三种管理忽略文件的方法
+1. 将规则写在.gitignore push到远程 这样该项目的所有clone都会有这样一份列表 
+2. 将规则写入.git/info/exclude 这样跟1比起来，对本地的项目是有效的，但是不能同步到远端
+3. 写入.gitignore文件，也可以是其他名称，放到某一个具体的目录下，比如/tmp/gitignore/.gitignore,执行命令，git config --global core.excludesfile /tmp/gitignore/.gitignore,这样就相当于全局配置了一下，这样只要在本机所有git管理的项目都会应用这个规则。
 
 也是git学习中，顺便回答几个问题。
 
