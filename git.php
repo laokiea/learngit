@@ -175,3 +175,5 @@ git reset 有三个参数 --mixed（默认） --soft --hrad
 --hrad:  暂存区，版本库，工作区会回退到指定的版本
 
 如果跟文件，会把版本库里的文件复制一份去暂存区。
+
+git checkout -b newbranch && git push origin branch_name:origin_branch_name
